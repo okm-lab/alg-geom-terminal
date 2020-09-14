@@ -1,0 +1,8 @@
+﻿  Main.c
+C:\Users\user\Documents\GitHub\alg-geom-terminal\Complex\Complex\Main.c(54,59): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\user\Documents\GitHub\alg-geom-terminal\Complex\Complex\Main.c(57,59): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\user\Documents\GitHub\alg-geom-terminal\Complex\Complex\Main.c(60,59): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\user\Documents\GitHub\alg-geom-terminal\Complex\Complex\Main.c(63,59): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\user\Documents\GitHub\alg-geom-terminal\Complex\Complex\Main.c(105,8): warning C4013: 'system' undefined; assuming extern returning int
+C:\Users\user\Documents\GitHub\alg-geom-terminal\Complex\Complex\Main.c(100,37): warning C4101: 'sqrt_state': unreferenced local variable
+  Complex.vcxproj -> C:\Users\user\Documents\GitHub\alg-geom-terminal\Complex\Debug\Complex.exe

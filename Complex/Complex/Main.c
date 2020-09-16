@@ -82,10 +82,12 @@ void rootTrig(double r, double a, double b, int n) {
 		double r0 = pow(r, 1.0 / n);
 		double a0 = cos((acos(a) + 2 * acos(-1.0) * i) / n);
 		double b0 = sin((asin(b) + 2 * acos(-1.0) * i) / n);
-		if (b0 >= 0)
-			printf("%d: %.4g(cos(%.4gpi) + isin(%.4gpi))     ", i + 1, r0, acos(a0)/acos(-1.0), acos(b0)/acos(-1.0));
-		else
-			printf("%d: %.4g(cos(%.4gpi) - isin(%.4gpi)     ", i + 1, r0, acos(a0)/acos(-1.0), -asin(b0)/acos(-1.0));
+		if (b0 > 0) {
+			printf("Current number: %.4g(cos(%.4gpi) + isin(%.4gpi)) ", r, acos(a) / acos(-1.0), acos(a) / acos(-1.0));
+		}
+		else {
+			printf("Current number: %.4g(cos(%.4gpi) + isin(%.4gpi)) ", r, 2 - (acos(a) / acos(-1.0)), 2 - (acos(a) / acos(-1.0)));
+		}
 		trigToAlg(&r0, &a0, &b0);
 		if (b0 >= 0)
 			printf("(%.4g + %.4gi)\n", a0, b0);
@@ -157,10 +159,13 @@ int main() {
 			}
 		}
 		else {
-			if (b >= 0)
-				printf("Current number: %.4g(cos(%.4gpi) + isin(%.4gpi)) ", r, acos(a)/acos(-1.0), asin(b)/acos(-1.0));
-			else
-				printf("Current number: %.4g(cos(%.4g) - isin(%.4g))", r, acos(a)/acos(-1.0), -asin(b)/acos(-1.0));
+			if (b > 0) {
+				printf("Current number: %.4g(cos(%.4gpi) + isin(%.4gpi)) ", r, acos(a) / acos(-1.0), acos(a) / acos(-1.0));
+			}
+			else{
+				printf("Current number: %.4g(cos(%.4gpi) + isin(%.4gpi)) ", r, 2-(acos(a) / acos(-1.0)), 2-(acos(a) / acos(-1.0)));
+			}
+
 			printf("\n\n\nSelect:\n1. Reverse\n2. Transform to algebraic form\n3. Power\n4. Root\n-1. Exit\n\n\n\n");
 			scanf("%d", &selection);
 

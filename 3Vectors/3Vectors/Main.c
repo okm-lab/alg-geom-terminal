@@ -1,24 +1,22 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-//#define VECTORS_COUNT 3
 struct vect {
 	int x;
 	int y;
 	int z;
 };
 
-//Функция принимает на вход 2 вектора и возвращает их векторное произведение
+//The function takes 2 vectors as input and returns their cross product
 struct vect getVectorProduct(struct vect a, struct vect b) {
 	struct vect v = { a.y * b.z - a.z* b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x };
 	return v;
 }
 
-//Функция принимает на вход 2 вектора и возвращает их скалярное произведение
+//The function takes 2 vectors as input and returns their scalar product
 int getScalarProduct(struct vect a, struct vect b) {
 	return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
-//Проверка коллинеарности векторов
 int checkCollinear(struct vect a, struct vect b) {
 	struct vect v = getVectorProduct(a, b);
 	return v.x == 0 && v.y == 0 && v.z == 0 ? 1 : 0;
@@ -26,11 +24,11 @@ int checkCollinear(struct vect a, struct vect b) {
 
 
 int main() {
-	//Массив, в котором будут храниться вектора (<x,y,z>)
+	//Array for vectors (<x,y,z>)
 	struct vect vectors[100];
-	//Массив, в котором будут храниться пары векторов, компланарных по отношению к первому
+	//Array with pairs of vector indices that are coplanar to the [this] element
 	int coplanar[100][100][2];
-	//Массив, в котором будут храниться все вектора, компланарные по отношению к первому
+	//Array with all vector indices that are collinerar to the [this] element
 	int collinear[100][100];
 	int x1, x2, y1, y2, z1, z2, VECTORS_COUNT;
 
@@ -56,9 +54,9 @@ int main() {
 	}
 
 	for (int i = 0; i < VECTORS_COUNT; i++) {
-		//kcomp - индекс следующей пары векторов, компланарных с Vi
+		//kcomp - index of the next pair of vectors that are coplanar to Vi
 		int kcomp = 0;
-		//kcol - индекс следующего вектора, коллинеарного Vi
+		//kcol - index of the next vector collinear to Vi
 		int kcol = 0;
 
 		for (int j = i + 1; j < VECTORS_COUNT; j++) {
@@ -70,7 +68,7 @@ int main() {
 				}
 			}
 			if (checkCollinear(vectors[i], vectors[j]) == 1) {
-				//Проверка того, что этот элемент ещё не встречался в списке коллинеарных векторов
+				//Checking that this element has not appeared in the collinear array
 				int chk = 0;
 				for (int x = 0; x < j; x++) {
 					for (int z = 0; z < VECTORS_COUNT; z++) {

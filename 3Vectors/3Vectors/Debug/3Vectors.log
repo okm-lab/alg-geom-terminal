@@ -1,0 +1,3 @@
+﻿  Main.c
+C:\Users\user\Documents\GitHub\alg-geom-terminal\3Vectors\3Vectors\Main.c(39,8): warning C4013: 'system' undefined; assuming extern returning int
+  3Vectors.vcxproj -> C:\Users\user\Documents\GitHub\alg-geom-terminal\3Vectors\Debug\3Vectors.exe

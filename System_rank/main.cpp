@@ -35,9 +35,9 @@ int find_next_nonzero(Vector** vectors, int current_vector, int current_coord, i
     int n = current_vector + 1;
     while (n < lastvector && vectors[n]->coords[current_coord] == 0)
         n++;
-    if (n == lastvector){
+    if (n == lastvector)
         return 0;
-    }else{
+    else{
         std::swap(vectors[n], vectors[current_vector]);
         return 1;
     }
@@ -87,10 +87,15 @@ int main(){
         vectors[i] = new Vector(coords, dimension);
     }
     int rank = gauss(vectors, 0, 0, num_of_vectors - 1, dimension);
+    std::cout << "Basis:\n";
     for(int i=0; i < rank; i++) {
         vectors[i]->print_coords();
         std::cout << "\n";
     }
-    std::cout << rank;
+    std::cout << "Rank: " << rank << "\n";
+    if (rank == num_of_vectors)
+        std::cout << "This vector system is not linearly dependent";
+    else
+        std::cout << "This vector system is linearly dependent";
     free(coords);
 }

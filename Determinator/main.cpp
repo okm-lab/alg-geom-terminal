@@ -26,11 +26,11 @@ public:
 
     friend Row operator*(const Row &row1, double value);
     friend Row operator-(const Row &row1, const Row &row2);
-    Row& operator-=(const Row &row){
+    void operator-=(const Row &row){
         for(int i=0; i < size; i++)
             numbers[i] -= row.numbers[i];
     }
-    Row& operator*=(double value){
+    void operator*=(double value){
         for(int i=0; i < size; i++)
             numbers[i] *= value;
     }

@@ -448,15 +448,15 @@ Matrix operator/(const Matrix &matrix1, double value){
 Matrix operator~(const Matrix &matrix){
     int m = matrix.number_of_lines;
     int n = matrix.line_size;
-    Row **new_rows = new Row*[m];
-    for(int i = 0; i < m; i++){
-        auto *row = new double[n];
-        for(int j=0; j < n; j++)
+    Row **new_rows = new Row*[n];
+    for(int i = 0; i < n; i++){
+        auto *row = new double[m];
+        for(int j=0; j < m; j++)
             row[j] = matrix.rows[j]->get(i);
-        new_rows[i] = new Row(row, n);
+        new_rows[i] = new Row(row, m);
         delete[] row;
     }
-    Matrix new_matrix = Matrix(new_rows, m, n);
+    Matrix new_matrix = Matrix(new_rows, n, m);
     delete[] new_rows;
     return new_matrix;
 }

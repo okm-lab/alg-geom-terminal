@@ -512,9 +512,7 @@ Matrix scan_matrix(int m, int n){
 int main() {
     std::cout.precision(3);
     int m, n;
-    std::cout << "Enter number of rows for A: ";
-    std::cin >> m;
-    std::cout << "\nEnter number of cols for A: ";
+    std::cout << "Enter size for A: ";
     std::cin >> n;
     std::cout << "\nEnter matrix A:\n";
     Matrix A = scan_matrix(n);
